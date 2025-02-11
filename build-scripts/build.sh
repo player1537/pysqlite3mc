@@ -3,10 +3,10 @@
 set -e -x
 
 # Fetch the source code for the latest release of Sqlite.
-if [[ ! -d "sqlite" ]]; then
+if ! [ -e sqlite3.c ] || ! [ -e sqlite3.h ]; then
   wget https://github.com/utelle/SQLite3MultipleCiphers/releases/download/v2.0.2/sqlite3mc-2.0.2-sqlite-3.48.0-amalgamation.zip -O sqlite3mc.zip
-  unzip sqlite3mc.zip -p sqlite3mc_amalgamation.c > sqlite3.c
-  unzip sqlite3mc.zip -p sqlite3mc_amalgamation.h > sqlite3.h
+  unzip -p sqlite3mc.zip sqlite3mc_amalgamation.c > sqlite3.c
+  unzip -p sqlite3mc.zip sqlite3mc_amalgamation.h > sqlite3.h
 fi
 
 # Grab the pysqlite3 source code.
