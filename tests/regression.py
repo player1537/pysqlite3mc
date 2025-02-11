@@ -1,7 +1,7 @@
 #-*- coding: iso-8859-1 -*-
 # pysqlite2/test/regression.py: pysqlite regression tests
 #
-# Copyright (C) 2006-2010 Gerhard Häring <gh@ghaering.de>
+# Copyright (C) 2006-2010 Gerhard Hï¿½ring <gh@ghaering.de>
 #
 # This file is part of pysqlite.
 #
@@ -24,7 +24,7 @@
 import datetime
 import functools
 import unittest
-from pysqlite3 import dbapi2 as sqlite
+from pysqlite3mc import dbapi2 as sqlite
 import weakref
 #from test import support
 

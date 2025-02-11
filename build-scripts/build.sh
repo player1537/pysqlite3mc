@@ -4,24 +4,20 @@ set -e -x
 
 # Fetch the source code for the latest release of Sqlite.
 if [[ ! -d "sqlite" ]]; then
-  wget https://www.sqlite.org/src/tarball/sqlite.tar.gz?r=release -O sqlite.tar.gz
-  tar xzf sqlite.tar.gz
-  cd sqlite/
-  LIBS="-lm" ./configure --disable-tcl --enable-tempstore=always
-  make sqlite3.c
-  cd ../
-  rm sqlite.tar.gz
+  wget https://github.com/utelle/SQLite3MultipleCiphers/releases/download/v2.0.2/sqlite3mc-2.0.2-sqlite-3.48.0-amalgamation.zip -O sqlite3mc.zip
+  unzip sqlite3mc.zip -p sqlite3mc_amalgamation.c > sqlite3.c
+  unzip sqlite3mc.zip -p sqlite3mc_amalgamation.h > sqlite3.h
 fi
 
 # Grab the pysqlite3 source code.
-if [[ ! -d "./pysqlite3" ]]; then
-  git clone git@github.com:coleifer/pysqlite3
+if [[ ! -d "./pysqlite3mc" ]]; then
+  git clone git@github.com:player1537/pysqlite3mc
 fi
 
 # Copy the sqlite3 source amalgamation into the pysqlite3 directory so we can
 # create a self-contained extension module.
-cp "sqlite/sqlite3.c" pysqlite3/
-cp "sqlite/sqlite3.h" pysqlite3/
+cp "sqlite3.c" pysqlite3mc/
+cp "sqlite3.h" pysqlite3mc/
 
 # Create the wheels and strip symbols to produce manylinux wheels.
 docker run -it -v $(pwd):/io quay.io/pypa/manylinux2014_x86_64 /io/_build_wheels.sh

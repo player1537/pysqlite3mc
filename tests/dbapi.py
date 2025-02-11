@@ -1,7 +1,7 @@
 #-*- coding: iso-8859-1 -*-
 # pysqlite2/test/dbapi.py: tests for DB-API compliance
 #
-# Copyright (C) 2004-2010 Gerhard Häring <gh@ghaering.de>
+# Copyright (C) 2004-2010 Gerhard Hï¿½ring <gh@ghaering.de>
 #
 # This file is part of pysqlite.
 #
@@ -23,7 +23,7 @@
 
 import threading
 import unittest
-from pysqlite3 import dbapi2 as sqlite
+from pysqlite3mc import dbapi2 as sqlite
 
 #from test.support import TESTFN, unlink
 TESTFN = '/tmp/pysqlite3_test'

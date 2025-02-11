@@ -1,7 +1,7 @@
 #-*- coding: iso-8859-1 -*-
 # pysqlite2/test/hooks.py: tests for various SQLite-specific hooks
 #
-# Copyright (C) 2006-2007 Gerhard Häring <gh@ghaering.de>
+# Copyright (C) 2006-2007 Gerhard Hï¿½ring <gh@ghaering.de>
 #
 # This file is part of pysqlite.
 #
@@ -24,7 +24,7 @@
 import os
 import unittest
 
-from pysqlite3 import dbapi2 as sqlite
+from pysqlite3mc import dbapi2 as sqlite
 
 
 class CollationTests(unittest.TestCase):
@@ -41,7 +41,7 @@ class CollationTests(unittest.TestCase):
 
     def test_CreateCollationNotAscii(self):
         con = sqlite.connect(":memory:")
-        con.create_collation("collä", lambda x, y: (x > y) - (x < y))
+        con.create_collation("collï¿½", lambda x, y: (x > y) - (x < y))
 
     def test_CreateCollationBadUpper(self):
         class BadUpperStr(str):

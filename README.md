@@ -1,5 +1,11 @@
-pysqlite3
-=========
+pysqlite3mc
+===========
+
+This library wraps the SQLite3 Multiple Ciphers build of SQLite3. A key benefit
+of this library is its ability to encrypt data at rest.
+
+sqlite3
+=======
 
 This library takes the SQLite module from Python 3 and packages it as a
 separately-installable module.

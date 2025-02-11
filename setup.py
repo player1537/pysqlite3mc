@@ -11,7 +11,7 @@ from setuptools import Extension
 
 # If you need to change anything, it should be enough to change setup.cfg.
 
-PACKAGE_NAME = 'pysqlite3'
+PACKAGE_NAME = 'pysqlite3mc'
 VERSION = '0.5.4'
 
 # define sqlite sources
@@ -127,14 +127,14 @@ def get_setup_args():
     return dict(
         name=PACKAGE_NAME,
         version=VERSION,
-        description="DB-API 2.0 interface for Sqlite 3.x",
+        description="Like pysqlite3 but with SQLite3 Multiple Ciphers for encryption",
         long_description='',
-        author="Charles Leifer",
-        author_email="coleifer@gmail.com",
+        author="Tanner Hobson",
+        author_email="thobson125@gmail.com",
         license="zlib/libpng",
         platforms="ALL",
-        url="https://github.com/coleifer/pysqlite3",
-        package_dir={PACKAGE_NAME: "pysqlite3"},
+        url="https://github.com/player1537/pysqlite3mc",
+        package_dir={PACKAGE_NAME: "pysqlite3mc"},
         packages=packages,
         ext_modules=[Extension(
             name=PACKAGE_NAME + EXTENSION_MODULE_NAME,

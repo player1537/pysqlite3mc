@@ -1,7 +1,7 @@
 #-*- coding: iso-8859-1 -*-
 # pysqlite2/test/types.py: tests for type conversion and detection
 #
-# Copyright (C) 2005 Gerhard Häring <gh@ghaering.de>
+# Copyright (C) 2005 Gerhard Hï¿½ring <gh@ghaering.de>
 #
 # This file is part of pysqlite.
 #
@@ -23,7 +23,7 @@
 
 import datetime
 import unittest
-from pysqlite3 import dbapi2 as sqlite
+from pysqlite3mc import dbapi2 as sqlite
 try:
     import zlib
 except ImportError:
@@ -41,10 +41,10 @@ class SqliteTypeTests(unittest.TestCase):
         self.con.close()
 
     def test_String(self):
-        self.cur.execute("insert into test(s) values (?)", ("Österreich",))
+        self.cur.execute("insert into test(s) values (?)", ("ï¿½sterreich",))
         self.cur.execute("select s from test")
         row = self.cur.fetchone()
-        self.assertEqual(row[0], "Österreich")
+        self.assertEqual(row[0], "ï¿½sterreich")
 
     def test_SmallInt(self):
         self.cur.execute("insert into test(i) values (?)", (42,))
@@ -75,9 +75,9 @@ class SqliteTypeTests(unittest.TestCase):
         self.assertEqual(row[0], sample)
 
     def test_UnicodeExecute(self):
-        self.cur.execute("select 'Österreich'")
+        self.cur.execute("select 'ï¿½sterreich'")
         row = self.cur.fetchone()
-        self.assertEqual(row[0], "Österreich")
+        self.assertEqual(row[0], "ï¿½sterreich")
 
 class DeclTypesTests(unittest.TestCase):
     class Foo:
